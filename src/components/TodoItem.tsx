@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import React from 'react';
 import classNames from 'classnames';
 import { Todo } from '../types/Todo';
 

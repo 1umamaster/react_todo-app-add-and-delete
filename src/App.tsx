@@ -9,6 +9,7 @@ import { Filter, ErrorMessage } from './types/enums';
 import classNames from 'classnames';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { TodoItem } from './components/TodoItem';
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -98,32 +99,7 @@ export const App: React.FC = () => {
         />
 
         {tempTodo && (
-          <div
-            data-cy="Todo"
-            className={classNames('todo', { completed: tempTodo.completed })}
-          >
-            <label className="todo__status-label">
-              <input
-                data-cy="TodoStatus"
-                type="checkbox"
-                className="todo__status"
-                checked={tempTodo.completed}
-                readOnly
-              />
-            </label>
-
-            <span data-cy="TodoTitle" className="todo__title">
-              {tempTodo.title}
-            </span>
-
-            <div
-              data-cy="TodoLoader"
-              className={classNames('modal', 'overlay', 'is-active')}
-            >
-              <div className="modal-background has-background-white-ter" />
-              <div className="loader" />
-            </div>
-          </div>
+          <TodoItem todo={tempTodo} deleting={true} handleDelete={() => {}} />
         )}
 
         {todos.length > 0 && (
